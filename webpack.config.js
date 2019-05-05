@@ -17,10 +17,14 @@ module.exports = {
     open: true
   },
 
+  // Track original css source map
+  devtool: 'source-map',
+
   module: {
     rules: [
       /*
        * sass-loader will compile .scss into .css
+       * postcss-loader will enable autoprefixer
        * css-loader will bundle .css into js
        * style-loader will embed <link> tag into <head> tag
        *
@@ -29,7 +33,10 @@ module.exports = {
         // Target file extension
         test: /\.scss/,
         use: [
-          'style-loader', // This will embed to <link> tag
+          // style-loader will embed <link> tag into <head> tag
+          'style-loader',
+
+          // css-loader will bundle .css into js
           {
             loader: 'css-loader',
             options: {
@@ -43,6 +50,19 @@ module.exports = {
               importLoaders: 2
             }
           },
+          // postcss-loader will enable autoprefixer
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: enabledSourceMap,
+              plugins: [
+                // Enable Autoprefixer
+                require('autoprefixer')({ grid: true })
+              ]
+            }
+          },
+
+          // sass-loader will compile .scss into .css
           { loader: 'sass-loader', options: { sourceMap: enabledSourceMap } }
         ]
       },
