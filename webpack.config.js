@@ -1,7 +1,26 @@
-module.exports = {
-  mode: 'development',
+// Constants
+const MODE = 'development';
 
-  entry: './src/index.js',
+module.exports = {
+  mode: MODE,
+
+  entry: './src/index.ts',
+
+  module: {
+    rules: [
+      {
+        // Target .ts files
+        test: /\.ts$/,
+        // Compile TypeScript
+        use: 'ts-loader'
+      }
+    ]
+  },
+
+  // resolve import syntax in .ts files
+  resolve: {
+    extensions: ['.ts']
+  },
 
   output: {
     path: `${__dirname}/dist`,
