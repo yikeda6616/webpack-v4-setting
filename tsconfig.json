@@ -2,6 +2,8 @@
   "compilerOptions": {
     "sourceMap": true,
     "target": "es5", // Compile TS to ES5
-    "module": "es2015" // Output TS modules as ES6 modules
+    "module": "es2015", // Output TS modules as ES6 modules
+    "moduleResolution": "node", // Read libraries from node_modules
+    "lib": ["es2018", "dom"]
   }
 }
