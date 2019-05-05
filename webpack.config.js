@@ -26,13 +26,14 @@ module.exports = {
        *
        */
       {
+        // Target file extension
         test: /\.scss/,
         use: [
           'style-loader', // This will embed to <link> tag
           {
             loader: 'css-loader',
             options: {
-              url: false,
+              url: true,
               sourceMap: enabledSourceMap,
               /*
                * 0 => no loaders (default)
@@ -44,6 +45,11 @@ module.exports = {
           },
           { loader: 'sass-loader', options: { sourceMap: enabledSourceMap } }
         ]
+      },
+      {
+        // Target file extensions
+        test: /\.(gif|png|jpg|eot|wof|woff|woff2|ttf|svg)$/,
+        loader: 'url-loader'
       }
     ]
   }
