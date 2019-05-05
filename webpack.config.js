@@ -19,7 +19,10 @@ module.exports = {
 
   // resolve import syntax in .ts files
   resolve: {
-    extensions: ['.ts']
+    extensions: ['.ts'],
+    alias: {
+      vue: 'vue/dist/vue.js'
+    }
   },
 
   output: {
