@@ -4,13 +4,13 @@ const MODE = 'development';
 module.exports = {
   mode: MODE,
 
-  entry: './src/index.ts',
+  entry: './src/index.tsx',
 
   module: {
     rules: [
       {
         // Target .ts files
-        test: /\.ts$/,
+        test: /\.tsx?$/,
         // Compile TypeScript
         use: 'ts-loader'
       }
@@ -19,7 +19,7 @@ module.exports = {
 
   // resolve import syntax in .ts files
   resolve: {
-    extensions: ['.ts']
+    extensions: ['.ts', '.tsx', '.js', '.json']
   },
 
   output: {
