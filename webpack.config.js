@@ -15,8 +15,12 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
-              // Transpile ES2019 to ES5
-              presets: ['@babel/preset-env']
+              presets: [
+                // Transpile ES2019 to ES5
+                '@babel/preset-env',
+                // Read jsx syntax
+                '@babel/react'
+              ]
             }
           }
         ]
